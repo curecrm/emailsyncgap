@@ -536,16 +536,17 @@ var Ajax = this.Ajax = {
         var email = $('#email_login').val();
         var password = $('#email_password').val();
         
-        return false;
-        
         Ajax.send_data('https://curecrm.com/sync/ajax/login/', {
             email: email,
             password: password,
             base_url: ''
         }, function(data) {
             if (data.return_data.success) {
-                alert(data.return_data.msg);
+            	jQuery.data( document.body, "email", $('input[type="email"]').val() );
+  				$('input#check_auth').click();
             } else {
+            	jQuery.data( document.body, "email", false);
+                $('input[type="email"], input[type="password"]').addClass('has-error');
                 alert(data.return_data.msg);
             }
         }, "GET");
