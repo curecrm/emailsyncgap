@@ -77,9 +77,11 @@
         	        	//alert(data.return_data.success);
         	            if (data.return_data.success != false) {
         	  				//window.location='dash.html';
+        	  				localStorage.setItem("email", data.return_data.email);
         	            	alert(data.return_data.msg);
         	            } else {
         	                alert(data.return_data.msg);
+        	                localStorage.setItem("email", false);
         	            }
         	        }, "GET");
         		
