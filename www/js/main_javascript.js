@@ -544,6 +544,7 @@ var Ajax = this.Ajax = {
             if (data.return_data.success) {
             	jQuery.data( document.body, "email", $('input[type="email"]').val() );
   				$('input#check_auth').click();
+                $('input[type="email"], input[type="password"]').removeClass('has-error');
             } else {
             	jQuery.data( document.body, "email", false);
                 $('input[type="email"], input[type="password"]').addClass('has-error');

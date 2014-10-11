@@ -109,7 +109,7 @@
           },
           place_email: function() {
         	  
-        	  if (localStorage.getItem("email") && localStorage.getItem("email") != false) {
+        	  if (localStorage.getItem("email") && localStorage.getItem("email") != false && localStorage.getItem("email") != "false") {
         	  	$('input[type="email"]').val(localStorage.getItem("email"));
         	  }
           }
@@ -165,7 +165,7 @@
                         <form class="form-signin" onsubmit="EmailSync.login(); return false;">
                             
                             
-                            <h2 class="form-signin-heading">Please sign in</h2>
+                            <h2 class="form-signin-heading">Sign-in</h2>
                             
                             <input type="email" required id="email_login" class="input-block-level" placeholder="Email address">
                             
@@ -176,7 +176,7 @@
                             
                             <button class="btn btn-large btn-primary" type="submit">Sign in</button>
                           
-                            <button class="btn btn-large" type="submit" id='check_auth' onclick='EmailSync.check_auth();return false;'>Check Authentication</button>
+                            <button class="btn btn-large" type="submit" id='check_auth' onclick='EmailSync.check_auth();return false;'>Check</button>
                           
                           
                           </form>
@@ -225,7 +225,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; CureCRM Email Sync 2014</p>
+            <p>Copyright &copy; CureCRM Email Sync</p>
         </div>
     </footer>
 
