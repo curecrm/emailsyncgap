@@ -532,7 +532,7 @@ var Ajax = this.Ajax = {
             var res = data;
         return res;
     },
-    login: function() {
+    login: function(callback) {
         var email = $('#email_login').val();
         var password = $('#email_password').val();
         
@@ -545,6 +545,7 @@ var Ajax = this.Ajax = {
             	jQuery.data( document.body, "email", $('input[type="email"]').val() );
   				$('input#check_auth').click();
                 $('input[type="email"], input[type="password"]').removeClass('has-error');
+                callback();
             } else {
             	jQuery.data( document.body, "email", false);
                 $('input[type="email"], input[type="password"]').addClass('has-error');
@@ -581,7 +582,7 @@ var Ajax = this.Ajax = {
             }
         }, "GET");
     },
-    send_data: function(ajax_function, data, call_func, method, type, abort_previous) {
+    send_data: function(ajax_function, data, call_func, method, type, abort_previous, beforeSend) {
         var that = this;
         var callFunction = function(func, object) {
             func(object);
@@ -610,6 +611,7 @@ var Ajax = this.Ajax = {
                 url: url,
                 dataType: type,
                 data: data,
+                beforeSend: beforeSend,
                 error: function() {
                     Ajax.current_ajax_request = null;
                 },

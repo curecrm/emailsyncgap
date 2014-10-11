@@ -90,7 +90,15 @@
         	}
           },
           login: function() {
-              var return_login = Ajax.login();
+        	  
+        	  var email = $('#email_login').val();
+        	  var password = $('#email_password').val();
+        	  
+              var return_login = Ajax.login(function(){
+            	  //this is the callback on successful login
+            	  //submit the actual login form now or just do a redirect?
+              });
+              
               if (return_login) {
             	  
             	  if(typeof(Storage) !== "undefined") {
@@ -103,7 +111,6 @@
   				EmailSync.check_auth();
               } else {
             	  localStorage.setItem("email", false)
-                $('input[type="email"], input[type="password"]').addClass('has-error');
               }
 			              
           },
